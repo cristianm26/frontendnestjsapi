@@ -13,13 +13,21 @@ import { DetalleProductoComponent } from './components/producto/detalle-producto
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { CrearProductoComponent } from './components/producto/crear-producto/crear-producto.component';
+import { HomeComponent } from './components/home/home.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegistroComponent } from './components/auth/registro/registro.component';
 @NgModule({
   declarations: [
     AppComponent,
     DetalleProductoComponent,
     ListaProductoComponent,
     EditarProductoComponent,
-    CrearProductoComponent
+    CrearProductoComponent,
+    HomeComponent,
+    MenuComponent,
+    LoginComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,

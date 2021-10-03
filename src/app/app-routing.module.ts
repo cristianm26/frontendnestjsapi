@@ -4,12 +4,18 @@ import { ListaProductoComponent } from './components/producto/lista-producto/lis
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { CrearProductoComponent } from './components/producto/crear-producto/crear-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegistroComponent } from './components/auth/registro/registro.component';
 
 const routes: Routes = [
-  { path: '', component: ListaProductoComponent },
+  { path: '', component: HomeComponent },
+  { path: 'lista', component: ListaProductoComponent },
   { path: 'detalle/:id', component: DetalleProductoComponent },
   { path: 'nuevo', component: CrearProductoComponent },
   { path: 'editar/:id', component: EditarProductoComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
