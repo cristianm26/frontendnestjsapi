@@ -7,15 +7,17 @@ import { EditarProductoComponent } from './components/producto/editar-producto/e
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
+import { LoginGuard } from './guards/login.guard';
+import { ProductoGuard } from './guards/producto.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'lista', component: ListaProductoComponent },
-  { path: 'detalle/:id', component: DetalleProductoComponent },
-  { path: 'nuevo', component: CrearProductoComponent },
-  { path: 'editar/:id', component: EditarProductoComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'registro', component: RegistroComponent },
+  { path: 'lista', component: ListaProductoComponent, canActivate: [ProductoGuard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [ProductoGuard], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'nuevo', component: CrearProductoComponent, canActivate: [ProductoGuard], data: { expectedRol: ['admin'] } },
+  { path: 'editar/:id', component: EditarProductoComponent, canActivate: [ProductoGuard], data: { expectedRol: ['admin'] } },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
+  { path: 'registro', component: RegistroComponent, canActivate: [LoginGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

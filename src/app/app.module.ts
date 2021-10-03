@@ -17,6 +17,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegistroComponent } from './components/auth/registro/registro.component';
+import { interceptorProvider } from './interceptors/producto.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,7 @@ import { RegistroComponent } from './components/auth/registro/registro.component
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

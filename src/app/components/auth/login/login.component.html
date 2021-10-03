@@ -14,7 +14,7 @@
         </div>
 
         <div class="card-body">
-            <form>
+            <form #f="ngForm" novalidate (ngSubmit)="onLogin()">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Correo Electrónico</label>
                     <input type="text" class="form-control" name="nombreUsuario" id="exampleInputEmail1"
@@ -27,7 +27,7 @@
                         [(ngModel)]="password" required>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary" (click)="onLogin()">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Iniciar Sesión</button>
                 </div>
             </form>
         </div>

@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 import { loginUsuario } from '../models/loginUsuario';
 import { nuevoUsuario } from '../models/nuevoUsuario';
+import { TokenDto } from '../models/token';
 
 @Injectable({
   providedIn: 'root'
@@ -14,10 +15,14 @@ export class AuthService {
   constructor(private httpClient: HttpClient) { }
 
   login(usuario: loginUsuario): Observable<any> {
-    return this.httpClient.post(`${this.authUrl}/auth/login`, usuario)
+    return this.httpClient.post<any>(`${this.authUrl}/auth / login`, usuario)
   }
 
   registro(usuario: nuevoUsuario): Observable<any> {
-    return this.httpClient.post(`${this.authUrl}/auth/nuevo`, usuario)
+    return this.httpClient.post<any>(`${this.authUrl} /auth/nuevo`, usuario)
+  }
+
+  refresh(dto: TokenDto): Observable<any> {
+    return this.httpClient.post<any>(`${this.authUrl} /auth/refresh`, dto)
   }
 }

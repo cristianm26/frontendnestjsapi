@@ -14,25 +14,28 @@
         </div>
 
         <div class="card-body">
-            <form>
+            <form #f="ngForm" novalidate (ngSubmit)="onRegister()">
                 <div class="mb-3">
                     <label for="nombre" class="form-label"> Nombre</label>
-                    <input type="text" class="form-control" name="nombre" id="nombre" />
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="nombre" id="nombre" />
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Nombre de Usuario</label>
-                    <input type="text" class="form-control" name="nombreUsuario" id="exampleInputEmail1" required />
+                    <input type="text" class="form-control" name="nombreUsuario" [(ngModel)]="nombreUsuario"
+                        id="exampleInputEmail1" required />
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputEmail2" class="form-label">Correo Electrónico</label>
-                    <input type="email" class="form-control" name="nombreUsuario" id="exampleInputEmail2" required />
+                    <input type="email" class="form-control" name="email" [(ngModel)]="email" id="exampleInputEmail2"
+                        required />
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" required />
+                    <input type="password" class="form-control" name="password" [(ngModel)]="password"
+                        id="exampleInputPassword1" required />
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Crear Cuenta</button>
                 </div>
             </form>
         </div>
